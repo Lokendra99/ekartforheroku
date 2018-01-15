@@ -65,8 +65,8 @@ fs.readdirSync('./app/models').forEach(function(file){
 })
 
 //connection to db
-var dbPath='mongodb://localhost/eCart';
-mongoose.connect(dbPath);
+//var dbPath='mongodb://localhost/eCart';
+mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.once('open',function(err){
   if(err)throw err;
   console.log("successfully connected to database");
